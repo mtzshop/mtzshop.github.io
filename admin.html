@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es" class="
+  text-[16px] 
+  sm:text-[18px]
+  md:text-[20px]
+  lg:text-[22px]
+  xl:text-[24px]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Revolico Matanzas</title>
+    <meta http-equiv="content-language" content="es">
+    
+<!--Links-->
+<link rel="stylesheet" href="src/css/styles.css">
+<link rel="stylesheet" href="dist/output.css">
+<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    
+    <!--Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Playfair:opsz,wght@5..1200,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yrsa:wght@500&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="admin m-0 p-0 bg-gray-50 text-black font-[Inter]">
+    <header class="header bg-white h-20 p-1 fixed top-0 left-0 w-screen flex z-30 flex-col gap-1.5 justify-center items-center shadow-sm" ></header>
+    <main class="main min-h-[200vh] p-2 mt-20 text-md">
+    
+    <h2 class="text-center font-bold mt-8 text-2xl">Subir Producto</h2>
+    <form class="form-product max-w-xl mx-auto p-4 space-y-6">
+  <!-- Título -->
+  <div class="space-y-2">
+    <label class="block text-gray-700 text-sm font-medium">Título</label>
+    <textarea  required minlength="6"
+      class="input-title w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
+      rows="2"
+    ></textarea>
+  </div>
+
+  <!-- Descripción -->
+  <div class="space-y-2">
+    <label class="block text-gray-700 text-sm font-medium">Descripción (opcional)</label>
+    <textarea 
+      class="input-description w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
+      rows="4"
+    ></textarea>
+  </div>
+
+  <!-- Precio -->
+  <div class="space-y-2">
+    <label class="block text-gray-700 text-sm font-medium">Precio</label>
+    <input required=""
+      type="number"
+      class="input-price w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
+      min="0"
+      step="0.01"
+    >
+  </div>
+  <!--Popular -->
+  <label class="inline-flex items-center gap-2 cursor-pointer">
+  <input 
+    type="checkbox" 
+    class="input-popular w-4 h-4 text-blue-600 bg-white border border-gray-300 rounded focus:ring-rose-500 focus:ring-2"
+  >
+  <span class="text-gray-700">Popular</span>
+</label>
+
+  <!-- Imágenes -->
+  <div class="space-y-2">
+    <label class="block text-gray-700 text-sm font-medium">Imágen</label>
+    <input required type="file" accept="image/*" class="input-image
+    w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-2 file:border-rose-700 file:border-0 file:text-sm file:font-medium file:bg-gray-50 file:text-rose-700 hover:file:bg-rose-100"
+    >
+  </div>
+  
+  
+
+  <!-- Div para mensajes -->
+  <div class="form-alert text-black text-sm"></div>
+<svg class="loading hidden mx-auto w-12 h-12 fill-rose-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" opacity="0.25"/><path fill="currentColorhttp://www.w3.org/2000/svg" d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"><animateTransform attributeName="transform" dur="0.788s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></svg>
+  <!-- Botón Submit -->
+  <button
+    type="submit"
+    class="submit w-full py-3 bg-rose-600 text-white hover:bg-neutral-900 transition-colors duration-200 font-bold"
+  >
+    Publicar
+  </button>
+</form>
+
+<p class=" font-bold text-2xl p-2 ">Personas que han visitado la página: <span class="contador-visitas"></span></p>
+        <section class="py-2">
+            <div>
+            <h2 class="font-inter font-bold text-2xl p-4 pt-6 ">Productos publicados</h2>
+            </div>
+            <div class="product-list flex flex-col my-5 p-2 gap-5">
+
+<div class="flex gap-3 w-full animate-pulse">
+    <div class="bg-gray-400 rounded-md h-32 w-32 mb-2 "></div>
+    <div class="flex-col flex-1">
+    <div class="bg-gray-400 rounded-md h-4 mb-2 "></div>
+    <div class="bg-gray-400 rounded-md h-4 w-1/2 mb-2"></div>
+    <div class="bg-gray-400 rounded-md h-4 mb-2"></div>
+    </div>
+</div>
+<div class="flex gap-3 w-full animate-pulse">
+    <div class="bg-gray-400 rounded-md h-32 w-32 mb-2 "></div>
+    <div class="flex-col flex-1">
+    <div class="bg-gray-400 rounded-md h-4 mb-2 "></div>
+    <div class="bg-gray-400 rounded-md h-4 w-1/2 mb-2"></div>
+    <div class="bg-gray-400 rounded-md h-4 mb-2"></div>
+    </div>
+</div>
+<div class="flex gap-3 w-full animate-pulse">
+    <div class="bg-gray-400 rounded-md h-32 w-32 mb-2 "></div>
+    <div class="flex-col flex-1">
+    <div class="bg-gray-400 rounded-md h-4 mb-2 "></div>
+    <div class="bg-gray-400 rounded-md h-4 w-1/2 mb-2"></div>
+    <div class="bg-gray-400 rounded-md h-4 mb-2"></div>
+    </div>
+</div>
+
+
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.0/dist/browser-image-compression.min.js"></script>
+    <script src="src/js/comps.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/admin.js"></script>
+</body>
+</html>
