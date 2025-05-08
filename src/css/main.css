@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+    @apply max-w-[800px] m-auto;
+}
+
+.skills__div {
+    @apply flex flex-1 flex-col basis-44 items-center gap-1 rounded-md px-3 py-5 font-medium ;
+}
+
+.skills__div svg {
+    @apply h-10 w-10 p-1 ;
+}
+
+.skills__div p {
+    @apply text-center text-[0.7rem] ;
+}
+
+.product-item {
+    @apply flex bg-white border-2 border-transparent w-full min-h-[7rem] max-h-[16rem] h-fit overflow-hidden rounded-md shadow-md active:bg-gray-300 active:transition-none transition ease-in;
+}
+
+.product-item div {
+    @apply p-2 flex flex-col flex-1 ;
+}
+
+.product-item img {
+    @apply object-cover bg-gray-300 max-h-full w-[40%] ;
+}
+
+.product-item h2 {
+    @apply text-base font-bold font-serifcustom ;
+}
+
+.product-item span {
+    @apply block text-sm py-2 after:content-['CUP'] after:pl-1 font-inter font-semibold tracking-tighter ;
+}
+
+.product-item p {
+    @apply my-1 overflow-auto flex-1 text-[0.8rem]
+}
+
+.product-item button {
+    @apply p-1 font-bold bg-gray-900 text-base text-white rounded-md w-full active:scale-95 transition ;
+}
+
+.product-popular .product-item {
+    @apply bg-transparent min-h-0 max-h-none border-none;
+}
+
+.product-popular .product-item div {
+    @apply h-fit flex flex-col justify-between ;
+}
+
+.product-popular .product-item p {
+    @apply max-h-[5rem] text-neutral-300;
+}
+
+.product-popular  .product-item h2 {
+    @apply font-bold
+}
+
+.product-popular .product-item button {
+    @apply bg-transparent border-2 text-sm active:bg-neutral-100 active:text-black ;
+}
+
+.product-popular .product-item img {
+    @apply w-full h-[13rem] rounded-md;
+}
+
+.product-deleted {
+    @apply bg-red-500;
+}
+
+.radio-container label {
+    @apply flex-1 rounded-md w-fit border-2 border-transparent flex justify-around items-center p-2 font-semibold transition;
+}
+
+.radio-container input{
+    @apply relative appearance-none 
+}
+
+.radio-container input:after{
+    @apply content-[""] absolute top-0 left-0 w-4 h-4 bg-transparent translate-x-[-50%] translate-y-[-50%] rounded-full border border-gray-400 transition
+}
+
+.radio-container input:checked:after {
+    @apply bg-rose-600 border-rose-400 shadow
+}
+
+.radio-container .label-checked {
+    @apply border-rose-600 ;
+}
+
+
+
+/* Header */
+header {
+    @apply bg-white h-24 fixed top-0 left-0 w-screen flex z-30 flex-col gap-1 justify-center items-center shadow-sm;
+}
+.nav__a {
+  @apply text-center text-2xl flex-1 flex flex-col items-center justify-center px-3 hover:font-medium hover:text-rose-600 transition;
+}
+
+.nav__a--active {
+    @apply font-medium text-rose-600
+}
+
+
+main {
+    @apply min-h-screen;
+}
+
+/* Footer */
+
+footer {
+    @apply mt-auto bg-neutral-950 text-gray-800 py-12 px-4 sm:px-6 lg:px-8;
+}
+.footer-title {
+    @apply text-white text-lg font-semibold mb-4;
+}
+.footer-text {
+    @apply text-gray-300 mb-4;
+}
+.footer-social {
+    @apply text-gray-400 hover:text-white;
+}
+.footer-list {
+    @apply space-y-2;
+}
+.footer-link {
+    @apply text-gray-400 hover:text-white flex items-center;
+}
+.footer-icon {
+    @apply mr-2 text-xs;
+}
+.footer-copyright {
+    @apply text-gray-400 text-sm flex items-center;
+}
+.footer-bottom-link {
+    @apply text-gray-400 hover:text-white text-sm mr-6 flex items-center;
+}

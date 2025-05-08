@@ -1,0 +1,142 @@
+
+
+.body-no-scroll {
+  overscroll-behavior: contain;
+}
+
+.hero-shop section:last-child, .hero-shop section p ,.hero-shop section h1  {
+    animation: show 1s backwards;
+}
+.product-item {
+    animation: show-product 0.8s both;
+}
+
+.hero-h1 {
+    animation: zooming 1s both alternate infinite;
+}
+
+.modal-product-overlay{
+    animation: show-modal 0.4s ease both;
+}
+
+
+
+@keyframes show-modal {
+    0% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes show-buy {
+    0% {
+        transform: translateX(110vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes show-product {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.custom-shape-divider-bottom-1746207556 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1746211635 {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1746211635 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 33px;
+}
+
+.custom-shape-divider-bottom-1746211635 .shape-fill {
+    fill: #F5F5F5;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-bottom-1746211635 svg {
+        width: calc(100% + 1.3px);
+        height: 70px;
+    }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1746211635 svg {
+        width: calc(187% + 1.3px);
+        height: 73px;
+    }
+}
+
+.custom-shape-divider-bottom-1746212210 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1746212210 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 40px;
+    transform: rotateY(180deg);
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-bottom-1746212210 svg {
+        width: calc(100% + 1.3px);
+        height: 33px;
+    }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1746212210 svg {
+        width: calc(149% + 1.3px);
+        height: 45px;
+    }
+}
