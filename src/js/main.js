@@ -25,7 +25,7 @@ window.productsPromise = getProductsPromise();
 // Plantilla HTML para productos
 const htmlProduct = (i, t, d, p, isAdmin = false) => {
     return `<article class="product-item">
-                <img decoding="async" loading="lazy" alt="" src="${i}">
+                <img decoding="async" loading="lazy" alt="${i}" src="${i}">
                 <div>
                     <h2>${t}</h2>
                     <p>${d}</p>
@@ -136,16 +136,41 @@ document.addEventListener("DOMContentLoaded", () => {
         const products = await productsPromise;
         let productPopular = "";
         let productGeneral = "";
+        let itemListElement = [];
+        const schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": itemListElement
+        };
 
         // Generar HTML para cada producto
-        products.forEach(p => {
+        products.forEach((p,i) => {
             let product = htmlProduct(p.img, p.title, p.description, p.price, isAdmin);
             
             if (p.popular == true) {
                 productPopular += product;
             }
             productGeneral += product;
+            
+            
+            //alamcenar schema de productos
+            itemListElement.push({
+                "@type": "ListItem",
+                "position": i + 1,
+                "item": {
+                "@type": "Product",
+                "name": p.title,
+                "image": p.img,
+                "offers": {
+                "@type": "Offer",
+                "price": p.price,
+                "priceCurrency": "CUP"
+                }
+                }
+            });
+            
         });
+        
 
         try {
             // Insertar productos en el DOM
@@ -179,6 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
             
+            //inyectar schema en el body
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.textContent = JSON.stringify(schema);
+            document.head.appendChild(script);
+            
             updateModal();
 
             // Agregar listeners de eliminación (solo admin)
@@ -190,6 +221,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 });
             }
+            
+  
+  
         } catch (e) {
             console.log("Error al mostrar productos:" + e);
         }
