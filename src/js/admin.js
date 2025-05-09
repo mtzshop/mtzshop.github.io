@@ -10,7 +10,7 @@ async function comprimirA70KB(imagen) {
         maxSizeMB: 0.07,
         useWebWorker: true,
         maxWidthOrHeight: 1920,
-        fileType: 'image/jpeg'
+        fileType: 'image/png'
     };
 
     try {
