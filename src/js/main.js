@@ -120,13 +120,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const sendOrder = ()=>{
     const title = encodeURIComponent(titleModalProduct.textContent);
     let directionHome = encodeURIComponent(directionInput.value.replace(/\r?\n|\r/g, ' '));
-    let service = homeService ? "A domicilio" : "Para recoger";
+    let service;
+    if(homeService){
+        service = "A domicilio";
+    } else {
+        service = "Para recoger";
+    }
     
     let msgLink = `%20%2APedido:%2A%20${title}%0A%2AServicio:%2A%20${service}${
       homeService ? `%0A%2ADirecci%C3%B3n:%2A%20${directionHome}` : ""
     }`;
     
-    let numbLink = "5356876678";
+    let numbLink = "5359402004";
     
     window.open(`https://wa.me/${numbLink}?text=${msgLink}`);
     };
@@ -299,7 +304,7 @@ radio.forEach(radio => {
   radio.addEventListener('change', function() {
     labelDomicilio.forEach(l => l.classList.remove("label-checked"));
     if (this.checked) {
-      homeService = radio.value;
+      homeService = (radio.value === "domicilio");
       label.classList.add("label-checked");
     }
     if(radioDomicilio.checked){
