@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /src/js/admin.js
+Disallow: /admin.html
+
+Sitemap: https://mtzshop.github.io/sitemap.xml
