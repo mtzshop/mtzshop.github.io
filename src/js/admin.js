@@ -7,7 +7,7 @@ async function comprimirA70KB(imagen) {
     console.log('[Compresión] Peso original:' + (imagen.size / 1024).toFixed(2) + 'KB');
     
     const opciones = {
-        maxSizeMB: 0.07,
+        maxSizeMB: 0.04,
         useWebWorker: true,
         maxWidthOrHeight: 1920,
         fileType: 'image/png'

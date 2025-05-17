@@ -1,6 +1,3 @@
-import {s, sAll, ValidationError, ConectionError} from "./mylib.js";
-
-
 const keyImgBb = "42c2035207510686c7c9d6f3301059b3";
 const keyBin = "6810d5b88561e97a500a0dec";
 const xMasterKey = "$2a$10$QBpnVlqFPhaiynczLJl7fuotcF3IAww5INCQXiVp8H3k7jXZuwDy2";
@@ -16,6 +13,7 @@ const getProductsPromise = async () => {
                 }
             });
             const data = await response.json();
+            console.log("caragdo");
             return data.record.products;
         } catch (error) {
             console.error("Error cargando el json:" + error);
@@ -60,7 +58,7 @@ const deleteProduct = async title => {
         }
         
         // Eliminar elementos del DOM
-        sAll(`[data-title="${title}"]`).forEach(el => {
+        document.querySelectorAll(`[data-title="${title}"]`).forEach(el => {
             el.parentElement.parentElement.remove();
         });
         console.log("eliminado con exito");
@@ -70,13 +68,13 @@ const deleteProduct = async title => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    const productList = s(".product-list");
-    const productPopularList = s(".product-popular");
+    const productList = document.querySelector(".product-list");
+    const productPopularList = document.querySelector(".product-popular");
     const isAdmin = document.body.classList.contains("admin");
     
 
     // Manejar errores en todas las imágenes
-    sAll("img").forEach(img => {
+    document.querySelectorAll("img").forEach(img => {
         img.addEventListener("error", function() {
             this.src = "./src/img/placeholder-img.jpg";
             this.alt = "Imagen no disponible";
@@ -98,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     const updateModal = ()=>{
-        const productItem = sAll(".product-item");
+        const productItem = document.querySelectorAll(".product-item");
     
             for(let product of productItem){
                 product.querySelector(".buy").addEventListener("click",function(){
@@ -222,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Agregar listeners de eliminación (solo admin)
             if (isAdmin) {
-                sAll(".btn-delete").forEach(btn => {
+                document.querySelectorAll(".btn-delete").forEach(btn => {
                     btn.addEventListener("click", e => {
                         const title = e.target.dataset.title;
                         deleteProduct(title);
@@ -245,8 +243,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 class Modal {
   constructor(modal,overlay) {
-    this.modal = s(modal);
-    this.modalOverlay = s(overlay);
+    this.modal = document.querySelector(modal);
+    this.modalOverlay = document.querySelector(overlay);
     this.isOpen = false;
     this.init();
   }
@@ -286,14 +284,14 @@ const modalProduct = new Modal(".modal-product",".modal-product-overlay");
 
 
 
-const formModalProduct = s(".form-modal-product");
-const radio = sAll('.radio-container input');
-const labelDomicilio = sAll(".radio-container label");
-const directionInfo = s(".modal-direction");
-const directionLabel = s(".modal-direction-label");
-const radioDomicilio = s(".radio-domicilio");
-const radioRecoger = s(".radio-recoger");
-const directionInput = s(".modal-direction-input");
+const formModalProduct = document.querySelector(".form-modal-product");
+const radio = document.querySelectorAll('.radio-container input');
+const labelDomicilio = document.querySelectorAll(".radio-container label");
+const directionInfo = document.querySelector(".modal-direction");
+const directionLabel = document.querySelector(".modal-direction-label");
+const radioDomicilio = document.querySelector(".radio-domicilio");
+const radioRecoger = document.querySelector(".radio-recoger");
+const directionInput = document.querySelector(".modal-direction-input");
 const titleModalProduct = modalProduct.modalOverlay.querySelector(".modal-title");
     const imgModal = modalProduct.modalOverlay.querySelector(".modal-img");
     const priceModal = modalProduct.modalOverlay.querySelector(".modal-price");
