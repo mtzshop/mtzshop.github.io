@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
             serifcustom: 'Lora',
-            inter: 'Inter',
+            inter: 'Manrope',
             strike: 'Protest Strike'
       },
       colors: {
